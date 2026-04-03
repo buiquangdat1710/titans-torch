@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: titans-torch
-Version: 0.1.1
+Version: 0.1.2
 Summary: PyTorch implementation of Titans: Learning to Memorize at Test Time
 Home-page: https://github.com/buiquangdat1710/titans-torch
 Author: Bui Quang Dat
@@ -16,7 +16,7 @@ Classifier: Operating System :: OS Independent
 Classifier: Intended Audience :: Science/Research
 Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
 Requires-Python: >=3.9
-Description-Content-Type: text/plain
+Description-Content-Type: text/markdown
 License-File: LICENSE.txt
 Requires-Dist: torch>=2.0.0
 Provides-Extra: dev
