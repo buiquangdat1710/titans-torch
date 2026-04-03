@@ -1,0 +1,56 @@
+================================================================================
+CHANGELOG — titans-torch
+================================================================================
+
+All notable changes to this project are documented in this file.
+Format follows: [Version] YYYY-MM-DD — summary of changes.
+
+--------------------------------------------------------------------------------
+[0.1.0] 2025-04-03  —  Initial Release
+--------------------------------------------------------------------------------
+
+Added
+  - NeuralLongTermMemory (LMM)
+      · forward_trainable(): differentiable inner-loop chunkwise gradient
+        descent, suitable for end-to-end outer-loop training.
+      · forward(): pure inference pass with no memory update.
+      · test_time_update(): sequential per-token adaptation at test time
+        without retaining a computation graph.
+      · Data-dependent learning-rate coefficients (alpha, theta, eta) via
+        small MLP nets.
+      · Optional 1D depthwise conv on K/V/Q projections.
+      · Momentum-based inner optimizer: S_t = eta*S_{t-1} - theta*grad.
+
+  - PersistentMemory
+      · Learnable token bank prepended to any input sequence.
+      · Configurable number of tokens and initialisation scale.
+
+  - TitansMAC (Memory as a Context)
+      · Segment-wise retrieval from long-term memory.
+      · Attention over [persistent ‖ retrieved ‖ segment].
+      · Post-attention memory update followed by gated output.
+      · Configurable num_heads and dropout.
+
+  - TitansMAG (Memory as a Gate)
+      · Parallel sliding-window short-term attention and LMM.
+      · Learned gate combines both streams.
+      · Configurable window_size, num_heads, dropout.
+
+  - TitansMAL (Memory as a Layer)
+      · LMM applied first as a preprocessing layer.
+      · Sliding-window attention applied on top.
+      · Configurable window_size, num_heads, dropout.
+
+  - Package scaffolding
+      · setup.py, MANIFEST.in, README.txt, LICENSE.txt, CHANGELOG.txt.
+
+--------------------------------------------------------------------------------
+[Unreleased]
+--------------------------------------------------------------------------------
+
+Planned / under consideration
+  - Parallel associative scan for momentum recurrence (speedup).
+  - Multi-layer stacking utility (e.g. TitansStack).
+  - FP16 / BF16 mixed-precision support and benchmarks.
+  - Integration tests and example training scripts.
+  - PyPI release.

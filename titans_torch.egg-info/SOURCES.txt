@@ -1,0 +1,15 @@
+CHANGELOG.txt
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+titans-torch/__init__.py
+titans-torch/mac.py
+titans-torch/mag.py
+titans-torch/mal.py
+titans-torch/memory.py
+titans_torch.egg-info/PKG-INFO
+titans_torch.egg-info/SOURCES.txt
+titans_torch.egg-info/dependency_links.txt
+titans_torch.egg-info/requires.txt
+titans_torch.egg-info/top_level.txt
